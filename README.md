@@ -8,11 +8,10 @@ Comprehensive open-source intelligence analysis of global Bitcoin hashrate distr
 # Install dependencies
 pip install matplotlib numpy
 
-# Generate color visualizations
-python visualizations/generate_visualizations.py
-
-# Generate black & white versions (Montserrat font, no grids)
-python visualizations/generate_visualizations_bw.py
+# Generate all visualizations
+python visualizations/generate_visualizations.py       # Core analysis (color)
+python visualizations/generate_visualizations_bw.py    # Core analysis (B&W)
+python visualizations/generate_geopolitical_charts.py  # Geopolitical events (both)
 ```
 
 ## Project Structure
@@ -23,12 +22,14 @@ real-bitcoin/
 │   ├── hashrate_distribution.json    # Mining pools & country hashrate data
 │   ├── government_holdings.json      # Disclosed + estimated secret holdings
 │   ├── paper_bitcoin.json            # ETFs, exchanges, wrapped BTC analysis
+│   ├── geopolitical_events.json      # Hashrate response to world events
 │   ├── hashrate_by_country.csv       # Country hashrate (CSV format)
 │   ├── government_holdings.csv       # Government holdings (CSV format)
 │   └── paper_bitcoin_summary.csv     # Paper BTC summary (CSV format)
 ├── visualizations/
-│   ├── generate_visualizations.py    # Color chart generator
-│   ├── generate_visualizations_bw.py # B&W chart generator
+│   ├── generate_visualizations.py    # Core analysis charts (color)
+│   ├── generate_visualizations_bw.py # Core analysis charts (B&W)
+│   ├── generate_geopolitical_charts.py # Geopolitical event charts
 │   ├── *.png                         # Color outputs
 │   └── bw/*.png                      # Black & white outputs
 └── report/
@@ -215,6 +216,35 @@ Always include:
     "last_updated": "2026-02-15"
 }
 ```
+
+---
+
+## Geopolitical Events Analysis
+
+Analysis of how Bitcoin hashrate responded to 5 major world events:
+
+| Event | Date | Hashrate Drop | Recovery |
+|-------|------|---------------|----------|
+| **US Airstrikes on Iran** | June 2025 | -27.3% | 5 days |
+| **China Mining Ban** | May-Jul 2021 | -53.3% | 180 days |
+| **Kazakhstan Protests** | Jan 2022 | -13.7% | 7 days |
+| **Russia-Ukraine War** | Feb 2022 | -26.9% | 30 days |
+| **Texas Winter Storms** | Jan 2024/2026 | -25% to -40% | 3-4 days |
+
+### Iran Mining Claim Analysis
+
+**Claim:** "Iran was mining Bitcoin and Trump bombed the mining centers"
+
+**Verdict:** PARTIALLY VALIDATED
+
+- ✓ Iran legalized BTC mining in 2019
+- ✓ IRGC operated mining facilities
+- ✓ Iran had 3-4.5% of global hashrate
+- ✓ Hashrate dropped 27% within hours of strikes
+- ✗ Mining facilities were not directly targeted (nuclear enrichment sites were)
+- ✗ Full 27% drop exceeds Iran's ~3% contribution
+
+See `data/geopolitical_events.json` and `visualizations/iran_mining_analysis.png` for details.
 
 ---
 

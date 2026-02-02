@@ -1,0 +1,267 @@
+{
+  "metadata": {
+    "title": "Bitcoin Hashrate Response to Geopolitical Events",
+    "description": "Analysis of how Bitcoin network hashrate responded to major geopolitical events",
+    "last_updated": "2026-02-02",
+    "methodology": "Hashrate data correlated with event timelines from multiple sources"
+  },
+  "events": [
+    {
+      "id": 1,
+      "name": "US Airstrikes on Iran Nuclear Facilities",
+      "date": "2025-06-21",
+      "type": "military_action",
+      "description": "US B-2 bombers struck Iranian nuclear facilities including Fordow, causing widespread power and internet disruptions",
+      "location": "Iran",
+      "hashrate_before_eh": 943,
+      "hashrate_after_eh": 686,
+      "hashrate_drop_percent": 27.3,
+      "hashrate_low_eh": 686,
+      "recovery_time_days": 5,
+      "hashrate_recovered_eh": 759,
+      "country_share_before_percent": 3.1,
+      "country_share_after_percent": 0.5,
+      "timeline": [
+        {"time": "2025-06-21 17:00 EDT", "event": "US authorizes strikes", "hashrate_eh": 943},
+        {"time": "2025-06-21 21:00 GMT", "event": "Bombing begins", "hashrate_eh": 920},
+        {"time": "2025-06-22 02:00 GMT", "event": "Power grid disruptions", "hashrate_eh": 800},
+        {"time": "2025-06-22 14:00 GMT", "event": "Hashrate bottom", "hashrate_eh": 686},
+        {"time": "2025-06-23 00:00 GMT", "event": "Partial recovery", "hashrate_eh": 759}
+      ],
+      "analysis": {
+        "direct_iran_contribution_eh": 28.5,
+        "unexplained_drop_eh": 228.5,
+        "possible_explanations": [
+          "Regional internet disruptions beyond Iran",
+          "Miner panic/precautionary shutdown",
+          "Coincidental Texas heat wave",
+          "Market volatility causing profit-driven shutdown"
+        ],
+        "iran_mining_confirmed": true,
+        "irgc_involvement": "documented",
+        "estimated_iran_btc_mined_total": "60000-200000"
+      },
+      "sources": [
+        "https://www.cryptotimes.io/2025/06/24/us-attack-on-iran-crashes-bitcoin-mining-hashrate-fact-check/",
+        "https://www.bitget.com/news/detail/12560604840093",
+        "https://www.ctol.digital/news/us-airstrikes-iran-knock-out-bitcoin-mining-digital-vulnerability/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": 2,
+      "name": "China Bitcoin Mining Ban",
+      "date": "2021-05-21",
+      "end_date": "2021-07-15",
+      "type": "regulatory_ban",
+      "description": "China's State Council announced crackdown on Bitcoin mining, leading to mass exodus of miners",
+      "location": "China",
+      "hashrate_before_eh": 180,
+      "hashrate_after_eh": 84,
+      "hashrate_drop_percent": 53.3,
+      "hashrate_low_eh": 84,
+      "recovery_time_days": 180,
+      "hashrate_recovered_eh": 180,
+      "country_share_before_percent": 65,
+      "country_share_after_percent": 0,
+      "timeline": [
+        {"time": "2021-05-21", "event": "State Council announces crackdown", "hashrate_eh": 180},
+        {"time": "2021-06-01", "event": "Inner Mongolia enforces ban", "hashrate_eh": 160},
+        {"time": "2021-06-19", "event": "Sichuan orders shutdown", "hashrate_eh": 130},
+        {"time": "2021-07-03", "event": "Hashrate bottom", "hashrate_eh": 84},
+        {"time": "2021-07-17", "event": "Difficulty drops 28%", "hashrate_eh": 88},
+        {"time": "2021-12-01", "event": "Hashrate recovered", "hashrate_eh": 175}
+      ],
+      "analysis": {
+        "miners_relocated_to": ["United States", "Kazakhstan", "Russia", "Canada"],
+        "us_share_change": "+20%",
+        "kazakhstan_share_change": "+13%",
+        "long_term_outcome": "China hashrate returned to 20% by 2024 via covert operations",
+        "difficulty_adjustment_percent": -28
+      },
+      "sources": [
+        "https://hashrateindex.com/blog/bitcoin-mining-ban-china-hashrate-migration/",
+        "https://www.cnbc.com/2021/06/15/chinas-bitcoin-miner-exodus-.html"
+      ],
+      "confidence": "very_high"
+    },
+    {
+      "id": 3,
+      "name": "Kazakhstan Fuel Protests & Internet Blackout",
+      "date": "2022-01-05",
+      "type": "civil_unrest",
+      "description": "Violent protests over fuel prices led to government internet shutdown, taking Kazakhstan's miners offline",
+      "location": "Kazakhstan",
+      "hashrate_before_eh": 205,
+      "hashrate_after_eh": 177,
+      "hashrate_drop_percent": 13.7,
+      "hashrate_low_eh": 177,
+      "recovery_time_days": 7,
+      "hashrate_recovered_eh": 200,
+      "country_share_before_percent": 18,
+      "country_share_after_percent": 8,
+      "timeline": [
+        {"time": "2022-01-02", "event": "Fuel price caps removed", "hashrate_eh": 205},
+        {"time": "2022-01-04", "event": "Protests spread to Almaty", "hashrate_eh": 200},
+        {"time": "2022-01-05", "event": "Kazakhtelecom kills internet", "hashrate_eh": 177},
+        {"time": "2022-01-06", "event": "Government resigns", "hashrate_eh": 177},
+        {"time": "2022-01-09", "event": "Internet partially restored", "hashrate_eh": 185},
+        {"time": "2022-01-12", "event": "Full recovery", "hashrate_eh": 200}
+      ],
+      "analysis": {
+        "pools_affected": {
+          "1THash": -82,
+          "OKExPool": -46.3,
+          "KuCoinPool": -22.7,
+          "ViaBTC": -19.2,
+          "F2Pool": -12.8,
+          "AntPool": -11.6
+        },
+        "network_monitoring": "NetBlocks confirmed centralized kill-switch",
+        "long_term_impact": "Many miners relocated to US/Russia"
+      },
+      "sources": [
+        "https://www.coindesk.com/business/2022/01/06/kazakhstans-hashrate-drops-as-internet-blackout-persists-amid-nationwide-protests",
+        "https://www.cnbc.com/2022/01/06/kazakhstan-bitcoin-mining-shuts-down-amid-fatal-protests.html",
+        "https://cointelegraph.com/news/kazakh-government-resigns-shuts-down-internet-amid-protests-causing-bitcoin-network-hash-rate-to-tumble-13-4"
+      ],
+      "confidence": "very_high"
+    },
+    {
+      "id": 4,
+      "name": "Russia-Ukraine War & Sanctions",
+      "date": "2022-02-24",
+      "type": "war_sanctions",
+      "description": "Russia invaded Ukraine; Western nations imposed unprecedented sanctions including on crypto mining",
+      "location": "Russia/Ukraine",
+      "hashrate_before_eh": 249,
+      "hashrate_after_eh": 182,
+      "hashrate_drop_percent": 26.9,
+      "hashrate_low_eh": 182,
+      "recovery_time_days": 30,
+      "hashrate_recovered_eh": 220,
+      "country_share_before_percent": 11,
+      "country_share_after_percent": 11,
+      "timeline": [
+        {"time": "2022-02-15", "event": "Hashrate ATH", "hashrate_eh": 249},
+        {"time": "2022-02-24", "event": "Russia invades Ukraine", "hashrate_eh": 220},
+        {"time": "2022-02-25", "event": "Flexpool bans Russian miners", "hashrate_eh": 210},
+        {"time": "2022-03-03", "event": "Hashrate bottom", "hashrate_eh": 182},
+        {"time": "2022-04-20", "event": "OFAC sanctions BitRiver", "hashrate_eh": 200},
+        {"time": "2022-05-01", "event": "Russian hashrate stable", "hashrate_eh": 210}
+      ],
+      "analysis": {
+        "russian_mining_unaffected_reason": "Domestic gas/hydro power, remote Siberian locations",
+        "ruble_devaluation_effect": "Made energy 25-30% cheaper in USD terms",
+        "sanctions_impact": "BitRiver sanctioned but operations continued",
+        "strategic_importance": "Russia views mining as sanctions evasion tool",
+        "note": "Hashrate drop likely due to market conditions, not direct war impact"
+      },
+      "sources": [
+        "https://www.coindesk.com/layer2/2022/03/16/russian-crypto-miners-brace-for-sanctions-fallout-amid-ukraine-conflict",
+        "https://decrypt.co/93778/bitcoin-mining-russia-largely-unaffected-amid-ukraine-invasion",
+        "https://www.bloomberg.com/news/articles/2022-03-03/energy-rich-russia-may-turn-to-bitcoin-mining-to-dent-sanctions"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": 5,
+      "name": "Texas Winter Storm Grid Curtailment",
+      "date": "2024-01-15",
+      "date_2": "2026-01-23",
+      "type": "energy_crisis",
+      "description": "Severe winter storms in Texas caused Bitcoin miners to curtail operations to support grid stability",
+      "location": "United States (Texas)",
+      "events": [
+        {
+          "name": "Winter Storm Finn (2024)",
+          "date": "2024-01-15",
+          "hashrate_before_eh": 550,
+          "hashrate_after_eh": 412,
+          "hashrate_drop_percent": 25,
+          "recovery_time_days": 4
+        },
+        {
+          "name": "Winter Storm Fernan (2026)",
+          "date": "2026-01-23",
+          "hashrate_before_eh": 1137,
+          "hashrate_after_eh": 682,
+          "hashrate_drop_percent": 40,
+          "recovery_time_days": 3
+        }
+      ],
+      "hashrate_before_eh": 1137,
+      "hashrate_after_eh": 682,
+      "hashrate_drop_percent": 40,
+      "hashrate_low_eh": 682,
+      "recovery_time_days": 3,
+      "hashrate_recovered_eh": 1100,
+      "country_share_before_percent": 38,
+      "country_share_after_percent": 38,
+      "timeline": [
+        {"time": "2026-01-23", "event": "Storm Fernan hits Texas", "hashrate_eh": 1137},
+        {"time": "2026-01-24", "event": "ERCOT emergency, miners curtail", "hashrate_eh": 850},
+        {"time": "2026-01-25", "event": "Hashrate bottom", "hashrate_eh": 682},
+        {"time": "2026-01-26", "event": "Storm passes, recovery begins", "hashrate_eh": 900},
+        {"time": "2026-01-28", "event": "Full recovery", "hashrate_eh": 1100}
+      ],
+      "analysis": {
+        "texas_share_of_global": 17,
+        "curtailment_voluntary": true,
+        "miners_paid_to_curtail": true,
+        "riot_curtailment_revenue_aug_2023": 31600000,
+        "foundry_drop_eh": 136,
+        "luxor_drop_eh": 24,
+        "block_time_during_event_min": 12,
+        "ercot_price_spike_per_mwh": 600,
+        "policy_implication": "Large loads now required to be curtailment-ready"
+      },
+      "sources": [
+        "https://theminermag.com/news/2024-01-16/bitcoin-hashrate-drop-texas-miner-curtail-grid",
+        "https://finance.yahoo.com/news/bitcoin-mining-faces-weather-shock-092730513.html",
+        "https://www.nasdaq.com/articles/bitcoin-mining-and-ercot-the-data-tells-the-story"
+      ],
+      "confidence": "very_high"
+    }
+  ],
+  "summary": {
+    "largest_drop": {
+      "event": "China Mining Ban 2021",
+      "drop_percent": 53.3
+    },
+    "fastest_impact": {
+      "event": "Iran Airstrikes 2025",
+      "time_to_bottom_hours": 17
+    },
+    "most_volatile": {
+      "event": "Texas Winter Storm 2026",
+      "drop_percent": 40,
+      "recovery_days": 3
+    },
+    "key_findings": [
+      "State-level internet kill switches can instantly drop hashrate 10-20%",
+      "Military action on energy infrastructure has outsized network effects",
+      "Regulatory bans cause permanent geographic redistribution",
+      "Weather events cause temporary but severe disruptions",
+      "Sanctions have limited direct impact due to mining's decentralized nature"
+    ],
+    "iran_mining_validation": {
+      "claim": "Iran was mining Bitcoin and US bombed the facilities",
+      "verdict": "PARTIALLY VALIDATED",
+      "evidence_for": [
+        "Iran legalized mining in 2019",
+        "IRGC documented involvement in mining operations",
+        "Iran contributed 3-4.5% of global hashrate",
+        "Hashrate dropped 27% within hours of strikes",
+        "Power/internet disruptions affected mining regions"
+      ],
+      "evidence_against": [
+        "Targeted facilities were enrichment sites, not power plants",
+        "Iran's nuclear contributes only 2-3% of electricity",
+        "Drop of 234 EH/s far exceeds Iran's 28.5 EH/s contribution",
+        "Other factors (Texas heat, market volatility) may explain gap"
+      ],
+      "conclusion": "Iran was definitively mining Bitcoin at scale. The US strikes disrupted this, but the magnitude of the hashrate drop suggests additional factors beyond direct Iranian mining losses."
+    }
+  }
+}
