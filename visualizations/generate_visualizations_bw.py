@@ -112,7 +112,7 @@ def create_hashrate_bar_chart(hashrate_data):
     # Error bars
     errors = [[m - l for m, l in zip(values_mid, values_low)],
               [h - m for m, h in zip(values_mid, values_high)]]
-    ax2.errorbar(values_mid, y_pos, xerr=errors, fmt='none', color='black', capsize=3)
+    ax2.errorbar(values_mid, y_pos, xerr=errors, fmt='none', color='black', capsize=4, linewidth=1.5)
 
     ax2.set_yticks(y_pos)
     ax2.set_yticklabels(countries_est)
@@ -120,9 +120,10 @@ def create_hashrate_bar_chart(hashrate_data):
     ax2.set_title('Estimated Actual Hashrate (VPN-adjusted)', fontsize=14)
     ax2.invert_yaxis()
 
-    for bar, val in zip(bars2, values_mid):
-        ax2.text(val + 1, bar.get_y() + bar.get_height()/2, f'{val:.1f}%',
-                va='center', fontsize=10)
+    # Position labels beyond error bars
+    for i, (val, val_high) in enumerate(zip(values_mid, values_high)):
+        label_x = val_high + 2  # Position beyond upper error bar
+        ax2.text(label_x, i, f'{val:.1f}%', va='center', fontsize=10, fontweight='bold')
 
     plt.tight_layout()
     plt.savefig(OUTPUT_DIR / 'hashrate_by_country_bw.png', dpi=150, bbox_inches='tight',
@@ -243,7 +244,7 @@ def create_government_holdings_chart(government_data):
     secret_centers = [d + s for d, s in zip(disclosed_btc, secret_btc_mid)]
     errors = [[m - l for m, l in zip(secret_btc_mid, secret_btc_low)],
               [h - m for m, h in zip(secret_btc_mid, secret_btc_high)]]
-    ax.errorbar(secret_centers, y_pos, xerr=errors, fmt='none', color='black', capsize=3)
+    ax.errorbar(secret_centers, y_pos, xerr=errors, fmt='none', color='black', capsize=4, linewidth=1.5)
 
     ax.set_yticks(y_pos)
     ax.set_yticklabels(countries)
@@ -253,10 +254,12 @@ def create_government_holdings_chart(government_data):
     ax.invert_yaxis()
     ax.legend(loc='lower right', frameon=True, edgecolor='black')
 
-    for i, (d, s) in enumerate(zip(disclosed_btc, secret_btc_mid)):
+    # Calculate max extent including error bars for label positioning
+    for i, (d, s, s_high) in enumerate(zip(disclosed_btc, secret_btc_mid, secret_btc_high)):
         total = d + s
+        max_extent = d + s_high + 15000  # Position label beyond error bar
         if total > 0:
-            ax.text(total + 5000, i, f'{total:,.0f}', va='center', fontsize=9)
+            ax.text(max_extent, i, f'{total:,.0f}', va='center', fontsize=10, fontweight='bold')
 
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: format(int(x), ',')))
 
