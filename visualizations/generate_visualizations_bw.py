@@ -62,8 +62,8 @@ def load_data():
 
 def create_hashrate_bar_chart(hashrate_data):
     """Create bar chart of hashrate by country (disclosed vs estimated)"""
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 8))
-    fig.suptitle('Global Bitcoin Hashrate Distribution by Country', fontsize=16, fontweight='bold')
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 9))
+    fig.suptitle('Global Bitcoin Hashrate Distribution by Country', fontsize=16, fontweight='bold', y=0.98)
 
     # Disclosed hashrate
     disclosed = hashrate_data['country_distribution']['disclosed']
@@ -82,10 +82,11 @@ def create_hashrate_bar_chart(hashrate_data):
     ax1.set_xlabel('Hashrate Share (%)', fontsize=12)
     ax1.set_title('Disclosed Hashrate (IP-based)', fontsize=14)
     ax1.invert_yaxis()
+    ax1.set_xlim(0, max(values_disclosed) * 1.25)  # Extend x-axis for labels
 
     for bar, val in zip(bars1, values_disclosed):
-        ax1.text(val + 0.5, bar.get_y() + bar.get_height()/2, f'{val:.1f}%',
-                va='center', fontsize=10)
+        ax1.text(val + 1.5, bar.get_y() + bar.get_height()/2, f'{val:.1f}%',
+                va='center', fontsize=10, fontweight='bold')
 
     # Estimated actual hashrate
     estimated = hashrate_data['country_distribution']['estimated_actual']
@@ -119,10 +120,11 @@ def create_hashrate_bar_chart(hashrate_data):
     ax2.set_xlabel('Hashrate Share (%)', fontsize=12)
     ax2.set_title('Estimated Actual Hashrate (VPN-adjusted)', fontsize=14)
     ax2.invert_yaxis()
+    ax2.set_xlim(0, max(values_high) * 1.3)  # Extend x-axis for labels
 
-    # Position labels beyond error bars
+    # Position labels well beyond error bars
     for i, (val, val_high) in enumerate(zip(values_mid, values_high)):
-        label_x = val_high + 2  # Position beyond upper error bar
+        label_x = val_high + 4  # Position well beyond upper error bar
         ax2.text(label_x, i, f'{val:.1f}%', va='center', fontsize=10, fontweight='bold')
 
     plt.tight_layout()
@@ -252,16 +254,22 @@ def create_government_holdings_chart(government_data):
     ax.set_title('Government Bitcoin Holdings: Disclosed vs Estimated Secret\n(Error bars show estimation range)',
                  fontsize=14, fontweight='bold')
     ax.invert_yaxis()
-    ax.legend(loc='lower right', frameon=True, edgecolor='black')
+
+    # Calculate max extent for x-axis limit
+    max_total = max([d + h for d, h in zip(disclosed_btc, secret_btc_high)])
+    ax.set_xlim(0, max_total * 1.25)  # Extend x-axis for labels
 
     # Calculate max extent including error bars for label positioning
     for i, (d, s, s_high) in enumerate(zip(disclosed_btc, secret_btc_mid, secret_btc_high)):
         total = d + s
-        max_extent = d + s_high + 15000  # Position label beyond error bar
+        max_extent = d + s_high + 25000  # Position label well beyond error bar
         if total > 0:
             ax.text(max_extent, i, f'{total:,.0f}', va='center', fontsize=10, fontweight='bold')
 
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: format(int(x), ',')))
+
+    # Legend below the chart
+    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.08), ncol=2, frameon=True, edgecolor='black')
 
     plt.tight_layout()
     plt.savefig(OUTPUT_DIR / 'government_holdings_bw.png', dpi=150, bbox_inches='tight',
