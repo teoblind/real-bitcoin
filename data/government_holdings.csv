@@ -1,0 +1,13 @@
+country,disclosed_btc,est_secret_low,est_secret_mid,est_secret_high,total_mid,source,status,confidence
+United States,328000,10000,20000,50000,348000,Seizures (Silk Road Bitfinex Chen Zhi),Strategic Reserve,high
+China,194000,30000,60000,100000,254000,PlusToken seizure + covert mining,Disclosed likely sold; secret accumulation,medium
+United Kingdom,61000,0,0,0,61000,Money laundering seizures,Held no policy,high
+Russia,0,50000,80000,150000,80000,State mining,Secret accumulation,low
+Iran,0,40000,60000,100000,60000,State mining since 2019,Secret accumulation,medium
+North Korea,0,13500,15000,20000,15000,Lazarus Group hacks,Stolen assets,high
+Bhutan,11000,0,0,0,11000,State hydro mining,Actively accumulating,medium
+El Salvador,7500,0,0,0,7500,Market purchases,Strategic reserve,high
+Ukraine,46351,0,0,0,46351,Donations and seizures,Partially liquidated,medium
+Germany,0,0,0,0,0,Movie2k seizure,Sold July 2024,high
+Venezuela,0,5000,10000,20000,10000,State mining,Sanctions evasion,low
+Finland,90,0,0,0,90,Criminal seizures,Held,medium

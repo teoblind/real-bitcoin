@@ -1,0 +1,13 @@
+country,disclosed_share_pct,estimated_low_pct,estimated_mid_pct,estimated_high_pct,confidence,notes
+United States,37.8,35,37.5,40,high,Largest disclosed share with reliable data from public companies
+China,0,15,21,25,medium,Covert operations continue despite 2021 ban; Cambridge CDAP shows 21%
+Kazakhstan,13.2,10,12,15,medium,Stable since post-China migration; cheap electricity
+Russia,4.7,5,7,10,low,State-linked shadow mining; understated in official figures
+Iran,4.2,3,4.2,5,medium,State-sponsored mining with 427K devices; sanctions evasion
+Canada,6.5,5,6.5,8,high,Transparent hydro-powered operations
+Germany,4.5,0.5,1,2,medium,Actual share much lower than reported; VPN destination
+Ireland,4.7,0.5,1,2,medium,Actual share much lower than reported; VPN destination
+Paraguay,0,1,2,3,low,Cheap hydroelectric power from Itaipu dam
+Norway,0,0.5,1,2,medium,Renewable energy mining
+Venezuela,0,0.5,1,2,low,Subsidized electricity; sanctions evasion
+Other,21.9,5,7.8,10,low,Distributed globally

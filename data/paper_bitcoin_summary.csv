@@ -1,0 +1,24 @@
+category,entity,btc_claimed,btc_verified,reserve_confidence,risk_factors
+ETF,BlackRock IBIT,570000,570000,high,Coinbase custody concentration
+ETF,Fidelity FBTC,210000,210000,high,Self-custody through subsidiary
+ETF,Grayscale GBTC,195000,195000,high,Experiencing outflows
+ETF,ARK21Shares ARKB,50000,50000,high,Coinbase custody
+ETF,Bitwise BITB,45000,45000,high,Transparent on-chain addresses
+ETF,Other ETFs,30000,25000,medium,Various custodians
+Corporate,Strategy MSTR,687000,650000,high,Significant debt leverage
+Corporate,Marathon MARA,53250,50000,high,Mining company
+Corporate,Riot Platforms,14548,14000,high,Mining company
+Corporate,Coinbase,13696,13696,high,Self-custody
+Corporate,Hut8,13011,13000,high,Mining company
+Corporate,Tesla,9720,8000,medium,Limited transparency
+Corporate,Block SQ,8027,8000,medium,Self-custody
+Exchange,Binance,600000,480000,medium,Regulatory issues; PoR methodology questioned
+Exchange,Coinbase,450000,450000,high,SEC regulated; no cryptographic PoR
+Exchange,Kraken,167000,192091,very_high,114.9% verified reserves
+Exchange,OKX,120000,108000,medium,zk-SNARK PoR
+Exchange,Bybit,80000,64000,medium,Recovery from Feb 2025 hack
+Exchange,Bitfinex,100000,70000,low,Historical hack; Tether connection
+Exchange,Other,983000,590000,low,Hundreds of small exchanges
+Wrapped,WBTC,129000,129000,high,BitGo custody verified
+Wrapped,cbBTC,43000,43000,high,Coinbase custody
+Wrapped,Other,3000,2500,medium,Various custodians

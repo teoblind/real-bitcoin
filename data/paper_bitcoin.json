@@ -1,0 +1,336 @@
+{
+  "metadata": {
+    "title": "Paper Bitcoin vs Real Bitcoin Analysis",
+    "last_updated": "2026-02-02",
+    "total_bitcoin_supply": 19700000,
+    "sources": [
+      "SEC filings",
+      "Company disclosures",
+      "CoinGlass",
+      "DeFiLlama",
+      "Proof of Reserve audits",
+      "On-chain analytics"
+    ]
+  },
+  "bitcoin_etfs": {
+    "total_aum_usd_billions": 110,
+    "total_btc_claimed": 1100000,
+    "funds": {
+      "BlackRock_IBIT": {
+        "btc_claimed": 570000,
+        "aum_usd_billions": 100,
+        "custodian": "Coinbase Custody",
+        "on_chain_verified": true,
+        "reserve_confidence": "high",
+        "notes": "Largest Bitcoin ETF; addresses disclosed; regularly audited"
+      },
+      "Fidelity_FBTC": {
+        "btc_claimed": 210000,
+        "aum_usd_billions": 22,
+        "custodian": "Fidelity Digital Assets",
+        "on_chain_verified": true,
+        "reserve_confidence": "high",
+        "notes": "Self-custody through Fidelity subsidiary"
+      },
+      "Grayscale_GBTC": {
+        "btc_claimed": 195000,
+        "aum_usd_billions": 15,
+        "custodian": "Coinbase Custody",
+        "on_chain_verified": true,
+        "reserve_confidence": "high",
+        "notes": "Converted from trust; experiencing outflows"
+      },
+      "ARK21Shares_ARKB": {
+        "btc_claimed": 50000,
+        "aum_usd_billions": 4.2,
+        "custodian": "Coinbase Custody",
+        "on_chain_verified": true,
+        "reserve_confidence": "high",
+        "notes": "Partnership between ARK and 21Shares"
+      },
+      "Bitwise_BITB": {
+        "btc_claimed": 45000,
+        "aum_usd_billions": 3.8,
+        "custodian": "Coinbase Custody",
+        "on_chain_verified": true,
+        "reserve_confidence": "high",
+        "notes": "Transparent on-chain addresses published"
+      },
+      "Other_ETFs": {
+        "btc_claimed": 30000,
+        "aum_usd_billions": 2.5,
+        "custodian": "Various",
+        "on_chain_verified": "partial",
+        "reserve_confidence": "medium",
+        "notes": "Includes VanEck, Invesco, Franklin Templeton, others"
+      }
+    },
+    "etf_risk_assessment": {
+      "fractional_reserve_risk": "low",
+      "evidence": "SEC requires authorized participants to create/redeem shares with actual BTC",
+      "custodian_concentration_risk": "high",
+      "notes": "Coinbase Custody holds for multiple ETFs - single point of failure"
+    }
+  },
+  "corporate_treasuries": {
+    "total_btc_claimed": 900000,
+    "companies": {
+      "Strategy_MSTR": {
+        "btc_claimed": 687000,
+        "acquisition_cost_usd_billions": 33.1,
+        "custody_type": "Self-custody and third-party custodians",
+        "on_chain_verified": "partial",
+        "leverage_used": true,
+        "debt_usd_billions": 7.5,
+        "reserve_confidence": "high",
+        "risk_factors": [
+          "Significant debt used to acquire BTC",
+          "Trading below NAV in some periods",
+          "Concentration risk"
+        ],
+        "notes": "Largest corporate holder; 3.5% of total supply"
+      },
+      "Marathon_MARA": {
+        "btc_claimed": 53250,
+        "custody_type": "Mix of self-custody and third-party",
+        "on_chain_verified": "partial",
+        "leverage_used": true,
+        "reserve_confidence": "high",
+        "notes": "Mining company; holds mined BTC"
+      },
+      "Riot_Platforms": {
+        "btc_claimed": 14548,
+        "custody_type": "Third-party custody",
+        "on_chain_verified": "partial",
+        "leverage_used": false,
+        "reserve_confidence": "high",
+        "notes": "Mining company"
+      },
+      "Coinbase_COIN": {
+        "btc_claimed": 13696,
+        "custody_type": "Self-custody",
+        "on_chain_verified": true,
+        "reserve_confidence": "high",
+        "notes": "Also custodian for ETFs; potential conflict"
+      },
+      "Tesla": {
+        "btc_claimed": 9720,
+        "custody_type": "Unknown",
+        "on_chain_verified": false,
+        "reserve_confidence": "medium",
+        "notes": "Sold 75% of holdings in 2022; remainder held"
+      },
+      "Block_SQ": {
+        "btc_claimed": 8027,
+        "custody_type": "Self-custody",
+        "on_chain_verified": false,
+        "reserve_confidence": "medium",
+        "notes": "Jack Dorsey's company"
+      },
+      "Hut8": {
+        "btc_claimed": 13011,
+        "custody_type": "Self-custody",
+        "on_chain_verified": "partial",
+        "reserve_confidence": "high",
+        "notes": "Mining company"
+      },
+      "Other_Companies": {
+        "btc_claimed": 100000,
+        "reserve_confidence": "medium",
+        "notes": "Includes Galaxy, CleanSpark, Metaplanet, others"
+      }
+    }
+  },
+  "exchange_holdings": {
+    "total_customer_btc_claimed": 2500000,
+    "exchanges": {
+      "Binance": {
+        "customer_btc_claimed": 600000,
+        "proof_of_reserves": true,
+        "por_method": "zk-SNARK Merkle tree",
+        "reserve_ratio_claimed": "100%+",
+        "verified_on_chain": "partial",
+        "reserve_confidence": "medium",
+        "risk_factors": [
+          "Regulatory issues in multiple jurisdictions",
+          "Historical SEC charges",
+          "Opaque corporate structure"
+        ],
+        "notes": "Largest exchange; PoR uses zk-SNARKs but criticized for not proving address ownership"
+      },
+      "Coinbase": {
+        "customer_btc_claimed": 450000,
+        "proof_of_reserves": false,
+        "por_method": "SEC financial statements",
+        "reserve_ratio_claimed": "100%",
+        "verified_on_chain": false,
+        "reserve_confidence": "high",
+        "risk_factors": [
+          "No cryptographic PoR",
+          "Relies on traditional audit"
+        ],
+        "notes": "Public company; relies on SEC filings rather than on-chain proof"
+      },
+      "Kraken": {
+        "customer_btc_claimed": 167000,
+        "proof_of_reserves": true,
+        "por_method": "Merkle tree with third-party auditor",
+        "reserve_ratio_claimed": "114.9%",
+        "wallet_btc_verified": 192091,
+        "verified_on_chain": true,
+        "reserve_confidence": "very_high",
+        "notes": "Gold standard for PoR; quarterly audits; holds 15% excess reserves"
+      },
+      "OKX": {
+        "customer_btc_claimed": 120000,
+        "proof_of_reserves": true,
+        "por_method": "zk-SNARK",
+        "reserve_ratio_claimed": "100%+",
+        "verified_on_chain": "partial",
+        "reserve_confidence": "medium",
+        "notes": "Regular PoR updates"
+      },
+      "Bybit": {
+        "customer_btc_claimed": 80000,
+        "proof_of_reserves": true,
+        "por_method": "Merkle tree",
+        "reserve_ratio_claimed": "100%",
+        "verified_on_chain": "partial",
+        "reserve_confidence": "medium",
+        "risk_factors": [
+          "$1.5B hack in Feb 2025",
+          "Recovery ongoing"
+        ],
+        "notes": "Major hack impacted reserves; working to restore"
+      },
+      "Bitfinex": {
+        "customer_btc_claimed": 100000,
+        "proof_of_reserves": "limited",
+        "reserve_confidence": "low",
+        "risk_factors": [
+          "2016 hack history",
+          "Tether connection concerns"
+        ],
+        "notes": "Limited transparency compared to competitors"
+      },
+      "Other_Exchanges": {
+        "customer_btc_claimed": 983000,
+        "reserve_confidence": "low",
+        "notes": "Hundreds of smaller exchanges; many with no PoR"
+      }
+    },
+    "exchange_risk_assessment": {
+      "ftx_lesson": "FTX showed exchanges can operate with significant shortfalls",
+      "estimated_industry_reserve_ratio_low": 0.85,
+      "estimated_industry_reserve_ratio_high": 0.98,
+      "estimated_industry_reserve_ratio_mid": 0.92,
+      "notes": "Industry likely 92-98% reserved on average; some smaller exchanges may be lower"
+    }
+  },
+  "wrapped_tokenized_btc": {
+    "total_btc_claimed": 175000,
+    "products": {
+      "WBTC": {
+        "btc_claimed": 129000,
+        "custody_type": "BitGo custodian",
+        "on_chain_verified": true,
+        "reserve_confidence": "high",
+        "blockchain": "Ethereum",
+        "notes": "Largest wrapped BTC; 1:1 backing verified on-chain"
+      },
+      "cbBTC": {
+        "btc_claimed": 43000,
+        "custody_type": "Coinbase",
+        "on_chain_verified": true,
+        "reserve_confidence": "high",
+        "blockchain": "Base, Solana",
+        "notes": "Coinbase-issued wrapped BTC"
+      },
+      "Other_Wrapped": {
+        "btc_claimed": 3000,
+        "includes": ["renBTC (deprecated)", "BTCB (Binance)", "tBTC"],
+        "reserve_confidence": "medium",
+        "notes": "Various smaller wrapped products"
+      }
+    },
+    "lightning_network": {
+      "capacity_btc": 5300,
+      "notes": "Not wrapped; actual BTC locked in payment channels"
+    }
+  },
+  "paper_bitcoin_analysis": {
+    "total_claimed_btc": {
+      "etfs": 1100000,
+      "corporate_treasuries": 900000,
+      "exchanges": 2500000,
+      "wrapped_btc": 175000,
+      "total": 4675000,
+      "percent_of_supply": 23.7
+    },
+    "verifiable_on_chain_btc": {
+      "etfs_verified": 1050000,
+      "corporate_verified": 700000,
+      "exchanges_verified": 1200000,
+      "wrapped_verified": 170000,
+      "total": 3120000,
+      "percent_of_supply": 15.8
+    },
+    "paper_bitcoin_multiplier": {
+      "best_case": {
+        "value": 1.0,
+        "assumption": "All entities have 100% reserves"
+      },
+      "worst_case": {
+        "value": 1.5,
+        "assumption": "Exchanges at 80%, some corporate double-counting, rehypothecation"
+      },
+      "most_likely": {
+        "value": 1.15,
+        "assumption": "Exchanges at 92%, minor overlaps, minimal rehypothecation",
+        "implied_phantom_btc": 700000,
+        "notes": "Approximately 700,000 BTC worth of claims may not be fully backed"
+      }
+    }
+  },
+  "systemic_risk_analysis": {
+    "highest_risk_entities": [
+      {
+        "entity": "Small offshore exchanges",
+        "risk_level": "very_high",
+        "reason": "No regulation, no PoR, history of exit scams"
+      },
+      {
+        "entity": "Binance",
+        "risk_level": "medium",
+        "reason": "Regulatory uncertainty, complex structure, PoR methodology criticized"
+      },
+      {
+        "entity": "Bitfinex",
+        "risk_level": "medium",
+        "reason": "Historical hack, Tether connection, limited transparency"
+      }
+    ],
+    "custodian_concentration": {
+      "coinbase_total_custody_btc": 2200000,
+      "percent_of_institutional_btc": 45,
+      "risk": "Single point of failure for ETFs and many institutions"
+    },
+    "bank_run_scenario": {
+      "description": "What happens if all holders demand proof simultaneously",
+      "estimated_shortfall_btc_low": 200000,
+      "estimated_shortfall_btc_high": 750000,
+      "estimated_shortfall_btc_mid": 400000,
+      "most_vulnerable": [
+        "Small exchanges",
+        "Offshore platforms",
+        "Lending platforms (if any remain)"
+      ],
+      "contagion_risk": "Medium - major institutions appear well-reserved; smaller entities at risk"
+    },
+    "comparison_to_2008": {
+      "traditional_bank_reserve_ratio": 0.1,
+      "crypto_exchange_estimated_ratio": 0.92,
+      "notes": "Crypto generally better reserved than traditional banks, but unregulated entities present risk"
+    }
+  }
+}
