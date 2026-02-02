@@ -103,10 +103,10 @@ def create_hashrate_bar_chart(hashrate_data):
     ax2.invert_yaxis()
     ax2.set_xlim(0, max(values_high) + 18)  # Extend x-axis significantly for labels
 
-    # Position labels well beyond error bars
+    # Position labels above error bars (offset up by 0.3)
     for i, (val, val_high) in enumerate(zip(values_mid, values_high)):
-        label_x = val_high + 10  # Position much further beyond upper error bar
-        ax2.text(label_x, i, f'{val:.1f}%', va='center', color='white', fontsize=10, fontweight='bold')
+        label_x = val_high + 3  # Slightly beyond error bar
+        ax2.text(label_x, i - 0.3, f'{val:.1f}%', va='center', color='white', fontsize=10, fontweight='bold')
 
     plt.tight_layout()
     plt.savefig(OUTPUT_DIR / 'hashrate_by_country.png', dpi=150, bbox_inches='tight',
@@ -239,12 +239,12 @@ def create_government_holdings_chart(government_data):
     max_total = max([d + h for d, h in zip(disclosed_btc, secret_btc_high)])
     ax.set_xlim(0, max_total + 200000)  # Extend x-axis significantly for labels
 
-    # Add value labels - position well beyond error bars
+    # Add value labels - position above error bars (offset up by 0.3)
     for i, (d, s, s_high) in enumerate(zip(disclosed_btc, secret_btc_mid, secret_btc_high)):
         total = d + s
-        max_extent = d + s_high + 120000  # Position label far beyond error bar
+        max_extent = d + s_high + 20000  # Slightly beyond error bar
         if total > 0:
-            ax.text(max_extent, i, f'{total:,.0f}', va='center', color='white', fontsize=10, fontweight='bold')
+            ax.text(max_extent, i - 0.3, f'{total:,.0f}', va='center', color='white', fontsize=10, fontweight='bold')
 
     # Format x-axis with thousands separator
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: format(int(x), ',')))
