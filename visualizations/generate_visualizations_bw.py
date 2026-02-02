@@ -257,12 +257,12 @@ def create_government_holdings_chart(government_data):
 
     # Calculate max extent for x-axis limit
     max_total = max([d + h for d, h in zip(disclosed_btc, secret_btc_high)])
-    ax.set_xlim(0, max_total * 1.25)  # Extend x-axis for labels
+    ax.set_xlim(0, max_total * 1.4)  # Extend x-axis for labels
 
     # Calculate max extent including error bars for label positioning
     for i, (d, s, s_high) in enumerate(zip(disclosed_btc, secret_btc_mid, secret_btc_high)):
         total = d + s
-        max_extent = d + s_high + 25000  # Position label well beyond error bar
+        max_extent = d + s_high + 50000  # Position label well beyond error bar
         if total > 0:
             ax.text(max_extent, i, f'{total:,.0f}', va='center', fontsize=10, fontweight='bold')
 
