@@ -120,11 +120,11 @@ def create_hashrate_bar_chart(hashrate_data):
     ax2.set_xlabel('Hashrate Share (%)', fontsize=12)
     ax2.set_title('Estimated Actual Hashrate (VPN-adjusted)', fontsize=14)
     ax2.invert_yaxis()
-    ax2.set_xlim(0, max(values_high) * 1.3)  # Extend x-axis for labels
+    ax2.set_xlim(0, max(values_high) + 18)  # Extend x-axis significantly for labels
 
     # Position labels well beyond error bars
     for i, (val, val_high) in enumerate(zip(values_mid, values_high)):
-        label_x = val_high + 4  # Position well beyond upper error bar
+        label_x = val_high + 10  # Position much further beyond upper error bar
         ax2.text(label_x, i, f'{val:.1f}%', va='center', fontsize=10, fontweight='bold')
 
     plt.tight_layout()
