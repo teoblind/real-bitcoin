@@ -122,10 +122,10 @@ def create_hashrate_bar_chart(hashrate_data):
     ax2.invert_yaxis()
     ax2.set_xlim(0, max(values_high) + 18)  # Extend x-axis significantly for labels
 
-    # Position labels above error bars (offset up significantly)
+    # Position labels above error bars (slight offset up)
     for i, (val, val_high) in enumerate(zip(values_mid, values_high)):
         label_x = val_high + 2
-        ax2.text(label_x, i - 0.55, f'{val:.1f}%', va='bottom', fontsize=10, fontweight='bold')
+        ax2.text(label_x, i - 0.35, f'{val:.1f}%', va='bottom', fontsize=10, fontweight='bold')
 
     plt.tight_layout()
     plt.savefig(OUTPUT_DIR / 'hashrate_by_country_bw.png', dpi=150, bbox_inches='tight',
@@ -259,12 +259,12 @@ def create_government_holdings_chart(government_data):
     max_total = max([d + h for d, h in zip(disclosed_btc, secret_btc_high)])
     ax.set_xlim(0, max_total + 200000)  # Extend x-axis significantly for labels
 
-    # Calculate max extent including error bars for label positioning (offset up significantly)
+    # Calculate max extent including error bars for label positioning (slight offset up)
     for i, (d, s, s_high) in enumerate(zip(disclosed_btc, secret_btc_mid, secret_btc_high)):
         total = d + s
         max_extent = d + s_high + 10000
         if total > 0:
-            ax.text(max_extent, i - 0.55, f'{total:,.0f}', va='bottom', fontsize=10, fontweight='bold')
+            ax.text(max_extent, i - 0.35, f'{total:,.0f}', va='bottom', fontsize=10, fontweight='bold')
 
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: format(int(x), ',')))
 
