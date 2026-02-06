@@ -39,9 +39,9 @@ plt.rcParams['axes.edgecolor'] = 'black'
 plt.rcParams['axes.grid'] = False
 plt.rcParams['grid.alpha'] = 0
 plt.rcParams['font.size'] = 11
-plt.rcParams['font.weight'] = 'medium'
-plt.rcParams['axes.titleweight'] = 'medium'
-plt.rcParams['axes.labelweight'] = 'medium'
+plt.rcParams['font.weight'] = 'bold'
+plt.rcParams['axes.titleweight'] = 'bold'
+plt.rcParams['axes.labelweight'] = 'bold'
 plt.rcParams['axes.spines.top'] = False
 plt.rcParams['axes.spines.right'] = False
 
