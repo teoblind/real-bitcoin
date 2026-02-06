@@ -55,6 +55,9 @@ def setup_bw_style():
     plt.rcParams['axes.spines.top'] = False
     plt.rcParams['axes.spines.right'] = False
     plt.rcParams['font.size'] = 11
+    plt.rcParams['font.weight'] = 'medium'
+    plt.rcParams['axes.titleweight'] = 'medium'
+    plt.rcParams['axes.labelweight'] = 'medium'
 
 
 def create_event_comparison_chart(data, bw=False):
