@@ -63,7 +63,7 @@ def load_data():
 def create_hashrate_bar_chart(hashrate_data):
     """Create bar chart of hashrate by country (disclosed vs estimated)"""
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 9))
-    fig.suptitle('Global Bitcoin Hashrate Distribution by Country', fontsize=16, fontweight='bold', y=0.98)
+    fig.suptitle('Global Bitcoin Hashrate Distribution by Country', fontsize=16, y=0.98)
 
     # Disclosed hashrate
     disclosed = hashrate_data['country_distribution']['disclosed']
@@ -86,7 +86,7 @@ def create_hashrate_bar_chart(hashrate_data):
 
     for bar, val in zip(bars1, values_disclosed):
         ax1.text(val + 1.5, bar.get_y() + bar.get_height()/2, f'{val:.1f}%',
-                va='center', fontsize=10, fontweight='bold')
+                va='center', fontsize=10)
 
     # Estimated actual hashrate
     estimated = hashrate_data['country_distribution']['estimated_actual']
@@ -125,7 +125,7 @@ def create_hashrate_bar_chart(hashrate_data):
     # Position labels above error bars (slight offset up)
     for i, (val, val_high) in enumerate(zip(values_mid, values_high)):
         label_x = val_high + 2
-        ax2.text(label_x, i - 0.15, f'{val:.1f}%', va='bottom', fontsize=10, fontweight='bold')
+        ax2.text(label_x, i - 0.15, f'{val:.1f}%', va='bottom', fontsize=10)
 
     plt.tight_layout()
     plt.savefig(OUTPUT_DIR / 'hashrate_by_country_bw.png', dpi=150, bbox_inches='tight',
@@ -181,7 +181,7 @@ def create_mining_pool_chart(hashrate_data):
               frameon=True, edgecolor='black')
 
     ax.set_title('Bitcoin Mining Pool Market Share (2025-2026)\nColored by Pool Headquarters',
-                 fontsize=14, fontweight='bold')
+                 fontsize=14)
 
     plt.tight_layout()
     plt.savefig(OUTPUT_DIR / 'mining_pool_share_bw.png', dpi=150, bbox_inches='tight',
@@ -252,7 +252,7 @@ def create_government_holdings_chart(government_data):
     ax.set_yticklabels(countries)
     ax.set_xlabel('Bitcoin Holdings (BTC)', fontsize=12)
     ax.set_title('Government Bitcoin Holdings: Disclosed vs Estimated Secret\n(Error bars show estimation range)',
-                 fontsize=14, fontweight='bold')
+                 fontsize=14)
     ax.invert_yaxis()
 
     # Calculate max extent for x-axis limit
@@ -264,7 +264,7 @@ def create_government_holdings_chart(government_data):
         total = d + s
         max_extent = d + s_high + 10000
         if total > 0:
-            ax.text(max_extent, i - 0.15, f'{total:,.0f}', va='bottom', fontsize=10, fontweight='bold')
+            ax.text(max_extent, i - 0.15, f'{total:,.0f}', va='bottom', fontsize=10)
 
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: format(int(x), ',')))
 
@@ -307,7 +307,7 @@ def create_paper_bitcoin_chart(paper_data):
                     color='#808080', edgecolor='black', linewidth=1.5)
 
     ax1.set_ylabel('Bitcoin (thousands)', fontsize=11)
-    ax1.set_title('Claimed vs Verified Bitcoin Holdings', fontsize=12, fontweight='bold')
+    ax1.set_title('Claimed vs Verified Bitcoin Holdings', fontsize=12)
     ax1.set_xticks(x)
     ax1.set_xticklabels(categories)
     ax1.legend(frameon=True, edgecolor='black')
@@ -340,7 +340,7 @@ def create_paper_bitcoin_chart(paper_data):
         text.set_color('black')
     for autotext in autotexts:
         autotext.set_color('black')
-    ax2.set_title('Bitcoin ETF Holdings Breakdown', fontsize=12, fontweight='bold')
+    ax2.set_title('Bitcoin ETF Holdings Breakdown', fontsize=12)
 
     # 3. Exchange reserve confidence
     ax3 = axes[1, 0]
@@ -364,7 +364,7 @@ def create_paper_bitcoin_chart(paper_data):
 
     bars = ax3.barh(ex_names, ex_btc, color=ex_patterns, edgecolor='black', linewidth=1.5)
     ax3.set_xlabel('Customer BTC (thousands)', fontsize=11)
-    ax3.set_title('Exchange Holdings & Reserve Confidence', fontsize=12, fontweight='bold')
+    ax3.set_title('Exchange Holdings & Reserve Confidence', fontsize=12)
     ax3.invert_yaxis()
 
     # Legend
@@ -386,12 +386,12 @@ def create_paper_bitcoin_chart(paper_data):
     ax4.axhline(y=1.0, color='black', linestyle='--', alpha=0.5, label='1:1 Backing')
     ax4.set_ylabel('Multiplier', fontsize=11)
     ax4.set_title('Paper Bitcoin Multiplier\n(1.0 = fully backed, >1.0 = more claims than BTC)',
-                  fontsize=12, fontweight='bold')
+                  fontsize=12)
     ax4.set_ylim(0.9, 1.6)
 
     for bar, val in zip(bars, values):
         ax4.text(bar.get_x() + bar.get_width()/2., val + 0.02, f'{val:.2f}x',
-                ha='center', va='bottom', fontsize=12, fontweight='bold')
+                ha='center', va='bottom', fontsize=12)
 
     plt.tight_layout()
     plt.savefig(OUTPUT_DIR / 'paper_bitcoin_analysis_bw.png', dpi=150, bbox_inches='tight',
@@ -450,7 +450,7 @@ def create_risk_matrix(paper_data, government_data):
     ax.set_xlabel('Fractional Reserve Risk Score (0=Safe, 1=High Risk)', fontsize=12)
     ax.set_ylabel('Bitcoin Holdings (thousands)', fontsize=12)
     ax.set_title('Risk Matrix: Holdings Size vs Fractional Reserve Risk\n(Marker size = log of holdings)',
-                 fontsize=14, fontweight='bold')
+                 fontsize=14)
     ax.set_yscale('log')
     ax.set_xlim(-0.05, 1.0)
 
@@ -507,7 +507,7 @@ def create_supply_distribution(government_data, paper_data):
         autotext.set_color('black')
 
     ax.set_title(f'Estimated Bitcoin Supply Distribution\n(Total: {total_supply:,} BTC)',
-                 fontsize=14, fontweight='bold')
+                 fontsize=14)
 
     plt.tight_layout()
     plt.savefig(OUTPUT_DIR / 'supply_distribution_bw.png', dpi=150, bbox_inches='tight',
