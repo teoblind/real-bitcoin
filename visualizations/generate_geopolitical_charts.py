@@ -98,7 +98,7 @@ def create_event_comparison_chart(data, bw=False):
 
     ax.set_ylabel('Hashrate Drop (%)', fontsize=12)
     ax.set_title('Bitcoin Hashrate Response to Geopolitical Events\nPercentage Drop from Pre-Event Levels',
-                 fontsize=14, fontweight='bold', color=text_color)
+                 fontsize=14,color=text_color)
     ax.set_xticks(x)
     ax.set_xticklabels(names, fontsize=9)
     ax.set_ylim(0, 60)
@@ -108,7 +108,7 @@ def create_event_comparison_chart(data, bw=False):
         height = bar.get_height()
         ax.text(bar.get_x() + bar.get_width()/2., height + 1,
                 f'{drop:.1f}%',
-                ha='center', va='bottom', fontsize=11, fontweight='bold', color=text_color)
+                ha='center', va='bottom', fontsize=11,color=text_color)
         ax.text(bar.get_x() + bar.get_width()/2., height/2,
                 f'{recovery}d recovery',
                 ha='center', va='center', fontsize=9, color='black' if not bw else 'white')
@@ -170,7 +170,7 @@ def create_timeline_chart(data, bw=False):
         ax.annotate(f'{min(pct_hashrates):.1f}%',
                    xy=(min_idx, min(pct_hashrates)),
                    xytext=(min_idx, min(pct_hashrates) - 8),
-                   ha='center', fontsize=10, fontweight='bold', color=text_color)
+                   ha='center', fontsize=10,color=text_color)
 
         ax.set_xticks(times)
         ax.set_xticklabels([str(i) for i in times], fontsize=8)
@@ -180,7 +180,7 @@ def create_timeline_chart(data, bw=False):
         title = event['name']
         if len(title) > 35:
             title = title[:32] + '...'
-        ax.set_title(f"{title}\n{event['date']}", fontsize=11, fontweight='bold', color=text_color)
+        ax.set_title(f"{title}\n{event['date']}", fontsize=11,color=text_color)
 
         ax.set_ylim(min(pct_hashrates) - 15, 105)
 
@@ -210,7 +210,7 @@ def create_timeline_chart(data, bw=False):
                 color=text_color)
 
     plt.suptitle('Hashrate Timeline During Geopolitical Events',
-                 fontsize=16, fontweight='bold', color=text_color, y=1.02)
+                 fontsize=16,color=text_color, y=1.02)
     plt.tight_layout()
 
     out_dir = BW_DIR if bw else OUTPUT_DIR
@@ -253,11 +253,11 @@ def create_iran_analysis_chart(data, bw=False):
     bars = ax1.bar(categories, values, color=[colors['drop'], colors['iran'], colors['other']],
                    edgecolor=edge, linewidth=2)
     ax1.set_ylabel('Hashrate (EH/s)', fontsize=12)
-    ax1.set_title('Hashrate Drop Breakdown\nJune 21-22, 2025', fontsize=12, fontweight='bold', color=text_color)
+    ax1.set_title('Hashrate Drop Breakdown\nJune 21-22, 2025', fontsize=12,color=text_color)
 
     for bar, val in zip(bars, values):
         ax1.text(bar.get_x() + bar.get_width()/2., val + 5,
-                f'{val:.0f} EH/s', ha='center', fontsize=11, fontweight='bold', color=text_color)
+                f'{val:.0f} EH/s', ha='center', fontsize=11,color=text_color)
 
     # Chart 2: Iran's historical hashrate share
     ax2 = axes[1]
@@ -267,7 +267,7 @@ def create_iran_analysis_chart(data, bw=False):
     bar_colors = [colors['iran']] * 6 + [colors['iran'], colors['drop']]
     bars = ax2.bar(years, iran_share, color=bar_colors, edgecolor=edge, linewidth=1.5)
     ax2.set_ylabel('Share of Global Hashrate (%)', fontsize=12)
-    ax2.set_title("Iran's Bitcoin Mining Share Over Time", fontsize=12, fontweight='bold', color=text_color)
+    ax2.set_title("Iran's Bitcoin Mining Share Over Time", fontsize=12,color=text_color)
     ax2.set_ylim(0, 6)
 
     # Add annotation for ban legalization
@@ -320,7 +320,7 @@ def create_iran_analysis_chart(data, bw=False):
                      edgecolor=edge, alpha=0.8))
 
     plt.suptitle('Iran Bitcoin Mining & US Airstrikes Analysis',
-                 fontsize=16, fontweight='bold', color=text_color, y=1.02)
+                 fontsize=16,color=text_color, y=1.02)
     plt.tight_layout()
 
     out_dir = BW_DIR if bw else OUTPUT_DIR
@@ -361,7 +361,7 @@ def create_geographic_shift_chart(data, bw=False):
                                            wedgeprops={'edgecolor': edge, 'linewidth': 1.5},
                                            textprops={'color': text_color})
     ax1.set_title('Global Hashrate Distribution\nPre-China Ban (May 2021)',
-                  fontsize=14, fontweight='bold', color=text_color)
+                  fontsize=14,color=text_color)
 
     # After events (2026)
     ax2 = axes[1]
@@ -373,7 +373,7 @@ def create_geographic_shift_chart(data, bw=False):
                                            wedgeprops={'edgecolor': edge, 'linewidth': 1.5},
                                            textprops={'color': text_color})
     ax2.set_title('Global Hashrate Distribution\nPost-Events (Feb 2026)',
-                  fontsize=14, fontweight='bold', color=text_color)
+                  fontsize=14,color=text_color)
 
     # Make text visible
     for texts in [texts1, texts2, autotexts1, autotexts2]:
@@ -381,7 +381,7 @@ def create_geographic_shift_chart(data, bw=False):
             text.set_color(text_color if not bw else 'black')
 
     plt.suptitle('Geopolitical Events Reshaped Bitcoin Mining Geography',
-                 fontsize=16, fontweight='bold', color=text_color, y=1.02)
+                 fontsize=16,color=text_color, y=1.02)
     plt.tight_layout()
 
     out_dir = BW_DIR if bw else OUTPUT_DIR
@@ -449,7 +449,7 @@ def create_recovery_analysis_chart(data, bw=False):
     ax.set_xlabel('Recovery Time (Days)', fontsize=12)
     ax.set_ylabel('Hashrate Drop (%)', fontsize=12)
     ax.set_title('Event Severity vs Recovery Time\n(Bubble size = network hashrate at time of event)',
-                 fontsize=14, fontweight='bold', color=text_color)
+                 fontsize=14,color=text_color)
 
     # Add quadrant labels
     ax.axhline(y=25, color='gray', linestyle='--', alpha=0.3)
